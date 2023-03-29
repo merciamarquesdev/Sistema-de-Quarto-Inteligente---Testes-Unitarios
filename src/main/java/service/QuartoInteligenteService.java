@@ -2,6 +2,8 @@ package service;
 
 import model.QuartoInteligente;
 
+import java.time.LocalDateTime;
+
 public class QuartoInteligenteService {
 
     public void tocarAlarme(QuartoInteligente quartoInteligente){
@@ -10,7 +12,7 @@ public class QuartoInteligenteService {
     public void desligarAlarme(QuartoInteligente quartoInteligente){
         quartoInteligente.setAlarme(false);
     }
-    public void ligarLuz(QuartoInteligente quartoInteligente) {
+    public void acenderLuz(QuartoInteligente quartoInteligente) {
         quartoInteligente.setIluminacao(true);
     }
 
@@ -27,11 +29,15 @@ public class QuartoInteligenteService {
     }
 
     public void aumentarTemperaturaArCondicionado(QuartoInteligente quartoInteligente, int temperatura) {
-        quartoInteligente.setTemperaturaArCondicionado(quartoInteligente.getTemperaturaArCondicionado() + temperatura);
+        if (quartoInteligente.getArCondicionado() && quartoInteligente.getTemperaturaArCondicionado() <= 16) {
+            quartoInteligente.setTemperaturaArCondicionado(quartoInteligente.getTemperaturaArCondicionado() + temperatura);
+        }
     }
 
     public void diminuirTemperaturaArCondicionado(QuartoInteligente quartoInteligente, int temperatura) {
-        quartoInteligente.setTemperaturaArCondicionado(quartoInteligente.getTemperaturaArCondicionado() - temperatura);
+        if (quartoInteligente.getArCondicionado() && quartoInteligente.getTemperaturaArCondicionado() >= 23){
+            quartoInteligente.setTemperaturaArCondicionado(quartoInteligente.getTemperaturaArCondicionado() - temperatura);
+        }
     }
 
     public void tocarMusica(QuartoInteligente quartoInteligente){
@@ -40,5 +46,11 @@ public class QuartoInteligenteService {
 
     public void desligarMusica(QuartoInteligente quartoInteligente){
         quartoInteligente.setMusica(false);
+    }
+
+    public LocalDateTime informarHoraCerta(QuartoInteligente quartoInteligente){
+        LocalDateTime localDateTime = LocalDateTime.now();
+        quartoInteligente.setHorario(localDateTime);
+        return quartoInteligente.getHorario();
     }
 }

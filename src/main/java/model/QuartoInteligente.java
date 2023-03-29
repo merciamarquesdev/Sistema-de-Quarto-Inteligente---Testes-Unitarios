@@ -47,12 +47,12 @@ public class QuartoInteligente {
         return alarme;
     }
 
-    public void setAlarme(boolean alarme) {
-        this.alarme = alarme;
-    }
-
-    public LocalDateTime getHorario() {return horario;}
+    public void setAlarme(boolean alarme) {this.alarme = alarme;}
 
     public void setHorario(LocalDateTime horario) {this.horario = horario;}
+
+    public LocalDateTime getHorario() {
+        return horario;
+    }
 }
 
