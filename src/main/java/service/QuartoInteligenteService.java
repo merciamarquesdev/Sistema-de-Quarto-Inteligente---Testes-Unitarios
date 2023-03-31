@@ -24,9 +24,7 @@ public class QuartoInteligenteService {
         quartoInteligente.setArCondicionado(true);
     }
 
-    public void desligarArCondicionado(QuartoInteligente quartoInteligente) {
-        quartoInteligente.setArCondicionado(false);
-    }
+    public void desligarArCondicionado(QuartoInteligente quartoInteligente) {quartoInteligente.setArCondicionado(false);}
 
     public void aumentarTemperaturaArCondicionado(QuartoInteligente quartoInteligente, int temperatura) {
         if (quartoInteligente.getArCondicionado() && quartoInteligente.getTemperaturaArCondicionado() <= 16) {
