@@ -4,7 +4,7 @@ import model.QuartoInteligente;
 
 public class ModoService{
 
-    public void modoSono(QuartoInteligenteService quartoInteligenteService, QuartoInteligente quartoInteligente){
+    public void modoDormir(QuartoInteligenteService quartoInteligenteService, QuartoInteligente quartoInteligente){
         quartoInteligenteService.apagarLuz(quartoInteligente);
         quartoInteligenteService.ligarArCondicionado(quartoInteligente);
         quartoInteligenteService.diminuirTemperaturaArCondicionado(quartoInteligente, 5);
