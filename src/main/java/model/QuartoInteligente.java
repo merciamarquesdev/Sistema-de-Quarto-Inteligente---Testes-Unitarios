@@ -10,6 +10,9 @@ public class QuartoInteligente {
     private boolean alarme;
     private LocalDateTime horario;
 
+    public QuartoInteligente(){
+    }
+
 
     public boolean getIluminacao() {
         return iluminacao;

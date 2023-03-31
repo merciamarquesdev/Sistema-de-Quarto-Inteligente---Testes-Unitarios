@@ -26,16 +26,8 @@ public class QuartoInteligenteService {
 
     public void desligarArCondicionado(QuartoInteligente quartoInteligente) {quartoInteligente.setArCondicionado(false);}
 
-    public void aumentarTemperaturaArCondicionado(QuartoInteligente quartoInteligente, int temperatura) {
-        if (quartoInteligente.getArCondicionado() && quartoInteligente.getTemperaturaArCondicionado() <= 16) {
-            quartoInteligente.setTemperaturaArCondicionado(quartoInteligente.getTemperaturaArCondicionado() + temperatura);
-        }
-    }
-
-    public void diminuirTemperaturaArCondicionado(QuartoInteligente quartoInteligente, int temperatura) {
-        if (quartoInteligente.getArCondicionado() && quartoInteligente.getTemperaturaArCondicionado() >= 23){
-            quartoInteligente.setTemperaturaArCondicionado(quartoInteligente.getTemperaturaArCondicionado() - temperatura);
-        }
+    public void definirTemperaturaArCondicionado(QuartoInteligente quartoInteligente, int temperatura) {
+        quartoInteligente.setTemperaturaArCondicionado(temperatura);
     }
 
     public void tocarMusica(QuartoInteligente quartoInteligente){
