@@ -1,4 +1,4 @@
-# Sistema de Quarto Inteligente - Testes Unitarios
+# Sistema de Quarto Inteligente - Testes Unitários
 
 Sistema gerenciador de Quarto Inteligente, no qual é possível controlar iluminação, ligar e desligar ar condicionado, definir temperatura do ar condicionado, 
 controle de música e alarme. Ainda é possível ativar diferentes modos:<br />
