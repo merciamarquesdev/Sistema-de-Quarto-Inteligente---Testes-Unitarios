@@ -1,29 +1,52 @@
 package service;
 import model.QuartoInteligente;
 import org.junit.jupiter.api.*;
-import org.mockito.Mockito;
-import java.time.LocalDateTime;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
+public class ModoServiceTest {
 
-class ModoServiceTest {
-
-    private QuartoInteligenteService quartoInteligenteService;
-    private QuartoInteligente quartoInteligenteMock;
+    private ModoService modoService;
     private QuartoInteligente quartoInteligente;
+    private QuartoInteligenteService quartoInteligenteService;
 
     @BeforeEach
-    void setUp() {
-        quartoInteligenteService = new QuartoInteligenteService();
+    public void setup() {
+        modoService = new ModoService();
         quartoInteligente = new QuartoInteligente();
-        quartoInteligenteMock = mock(QuartoInteligente.class);
+        quartoInteligenteService = new QuartoInteligenteService();
     }
 
     @Test
-    @DisplayName("Testa o método tocarAlarme")
-    void deveBli() {
-        quartoInteligenteService.tocarAlarme(quartoInteligente);
+    @DisplayName("Teste modoDormir")
+    public void modoDormirDeveFuncionarCorretamente() throws Exception {
+        modoService.modoDormir(quartoInteligenteService, quartoInteligente);
+        Assertions.assertEquals(16, quartoInteligente.getTemperaturaArCondicionado());
+        Assertions.assertTrue(quartoInteligente.getArCondicionado());
+        Assertions.assertFalse(quartoInteligente.getIluminacao());
+    }
+
+    @Test
+    @DisplayName("Teste modoAcordar")
+    public void modoAcordarDeveFuncionarCorretamente() {
+        modoService.modoAcordar(quartoInteligenteService, quartoInteligente);
         Assertions.assertTrue(quartoInteligente.getAlarme());
+        Assertions.assertTrue(quartoInteligente.getIluminacao());
+    }
+
+    @Test
+    @DisplayName("Teste modoRelaxar")
+    public void modoRelaxarDeveFuncionarCorretamente() throws Exception {
+        modoService.modoRelaxar(quartoInteligenteService, quartoInteligente);
+        Assertions.assertEquals(18, quartoInteligente.getTemperaturaArCondicionado());
+        Assertions.assertTrue(quartoInteligente.getArCondicionado());
+        Assertions.assertTrue(quartoInteligente.getMusica());
+    }
+
+    @Test
+    @DisplayName("Teste modoSair")
+    public void modoSairDeveFuncionarCorretamente() {
+        modoService.modoSair(quartoInteligenteService, quartoInteligente);
+        Assertions.assertFalse(quartoInteligente.getArCondicionado());
+        Assertions.assertFalse(quartoInteligente.getMusica());
+        Assertions.assertFalse(quartoInteligente.getIluminacao());
     }
 }

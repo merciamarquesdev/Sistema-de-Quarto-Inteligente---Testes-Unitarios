@@ -1,14 +1,11 @@
 package model;
 
-import java.time.LocalDateTime;
-
 public class QuartoInteligente {
     private boolean iluminacao;
     private boolean arCondicionado;
     private int temperaturaArCondicionado;
     private boolean musica;
     private boolean alarme;
-    private LocalDateTime horario;
 
     public QuartoInteligente(){
     }
@@ -51,11 +48,5 @@ public class QuartoInteligente {
     }
 
     public void setAlarme(boolean alarme) {this.alarme = alarme;}
-
-    public void setHorario(LocalDateTime horario) {this.horario = horario;}
-
-    public LocalDateTime getHorario() {
-        return horario;
-    }
 }
 

@@ -12,7 +12,6 @@ public class ModoService{
 
     public void modoAcordar(QuartoInteligenteService quartoInteligenteService, QuartoInteligente quartoInteligente){
         quartoInteligenteService.tocarAlarme(quartoInteligente);
-        quartoInteligenteService.informarHoraCerta(quartoInteligente);
         quartoInteligenteService.acenderLuz(quartoInteligente);
     }
 

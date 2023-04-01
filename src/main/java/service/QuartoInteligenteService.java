@@ -2,8 +2,6 @@ package service;
 
 import model.QuartoInteligente;
 
-import java.time.LocalDateTime;
-
 public class QuartoInteligenteService {
 
     public void tocarAlarme(QuartoInteligente quartoInteligente){
@@ -24,7 +22,9 @@ public class QuartoInteligenteService {
         quartoInteligente.setArCondicionado(true);
     }
 
-    public void desligarArCondicionado(QuartoInteligente quartoInteligente) {quartoInteligente.setArCondicionado(false);}
+    public void desligarArCondicionado(QuartoInteligente quartoInteligente) {
+        quartoInteligente.setArCondicionado(false);
+    }
 
     public void definirTemperaturaArCondicionado(QuartoInteligente quartoInteligente, int temperatura) throws Exception {
         if (quartoInteligente.getArCondicionado()){
@@ -46,11 +46,5 @@ public class QuartoInteligenteService {
 
     public void desligarMusica(QuartoInteligente quartoInteligente){
         quartoInteligente.setMusica(false);
-    }
-
-    public LocalDateTime informarHoraCerta(QuartoInteligente quartoInteligente){
-        LocalDateTime localDateTime = LocalDateTime.now();
-        quartoInteligente.setHorario(localDateTime);
-        return quartoInteligente.getHorario();
     }
 }

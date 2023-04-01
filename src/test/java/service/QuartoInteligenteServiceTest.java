@@ -1,17 +1,17 @@
 package service;
-import model.QuartoInteligente;
-import org.junit.jupiter.api.*;
-import org.mockito.Mockito;
-import java.time.LocalDateTime;
 
+import model.QuartoInteligente;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
+
+import org.junit.jupiter.api.*;
+import org.mockito.Mockito;
 
 class QuartoInteligenteServiceTest {
 
     private QuartoInteligenteService quartoInteligenteService;
-    private QuartoInteligente quartoInteligenteMock;
     private QuartoInteligente quartoInteligente;
+    private QuartoInteligente quartoInteligenteMock;
 
     @BeforeEach
     void setUp() {
@@ -100,14 +100,5 @@ class QuartoInteligenteServiceTest {
     void deveDesligarMusicaComSucesso(){
         quartoInteligenteService.desligarMusica(quartoInteligente);
         Assertions.assertFalse(quartoInteligente.getMusica());
-    }
-
-    @Test
-    @DisplayName("Testa o método informarHoraCerta")
-    void deveInformarHoraCertaComSucesso(){
-        LocalDateTime expected = LocalDateTime.of(2023, 3, 30, 20, 0);
-        Mockito.when(quartoInteligenteMock.getHorario()).thenReturn(expected);
-        LocalDateTime result = quartoInteligenteService.informarHoraCerta(quartoInteligenteMock);
-        Assertions.assertEquals(expected, result);
     }
 }
