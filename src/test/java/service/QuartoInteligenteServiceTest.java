@@ -105,7 +105,7 @@ class QuartoInteligenteServiceTest {
     @Test
     @DisplayName("Testa o método informarHoraCerta")
     void deveInformarHoraCertaComSucesso(){
-        LocalDateTime expected = LocalDateTime.of(2023, 3, 30, 15, 0);
+        LocalDateTime expected = LocalDateTime.of(2023, 3, 30, 20, 0);
         Mockito.when(quartoInteligenteMock.getHorario()).thenReturn(expected);
         LocalDateTime result = quartoInteligenteService.informarHoraCerta(quartoInteligenteMock);
         Assertions.assertEquals(expected, result);
