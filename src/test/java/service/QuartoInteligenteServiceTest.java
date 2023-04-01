@@ -76,7 +76,7 @@ class QuartoInteligenteServiceTest {
         Mockito.when(quartoInteligenteMock.getArCondicionado()).thenReturn(true);
         Exception exception = assertThrows(Exception.class, () ->
                 quartoInteligenteService.definirTemperaturaArCondicionado(quartoInteligenteMock, 30));
-        assertEquals("Temperatura inválida: 30. A temperatura deve ser entre 0 e 25 graus.", exception.getMessage());
+        assertEquals("Temperatura inválida: 30. A temperatura deve ser entre 16 e 26 graus.", exception.getMessage());
     }
 
     @Test

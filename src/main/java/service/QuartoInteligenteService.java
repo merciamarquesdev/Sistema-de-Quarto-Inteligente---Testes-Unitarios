@@ -28,11 +28,11 @@ public class QuartoInteligenteService {
 
     public void definirTemperaturaArCondicionado(QuartoInteligente quartoInteligente, int temperatura) throws Exception {
         if (quartoInteligente.getArCondicionado()){
-            if ( 0 < temperatura && temperatura < 25) {
+            if ( 16 <= temperatura && temperatura <= 26) {
                 quartoInteligente.setTemperaturaArCondicionado(temperatura);
             }
             else {
-                throw new Exception("Temperatura inválida: " + temperatura + ". A temperatura deve ser entre 0 e 25 graus.");
+                throw new Exception("Temperatura inválida: " + temperatura + ". A temperatura deve ser entre 16 e 26 graus.");
             }
         }
         else{
