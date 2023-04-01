@@ -1,12 +1,12 @@
 # Sistema de Quarto Inteligente - Testes Unitarios
 
 Sistema gerenciador de Quarto Inteligente, no qual é possível controlar iluminação, ligar e desligar ar condicionado, definir temperatura do ar condicionado, 
-controle de música e alarme. Ainda é possível ativar diferentes modos:
+controle de música e alarme. Ainda é possível ativar diferentes modos:<br />
 
-Modo Acordar: alarme toca e iluminação acende automaticamente.
-Modo Dormir: iluminação apaga, ar condicionado é ligado e é definida uma temperatura padrão automaticamente (foi usado como exemplo 16 graus).
-Modo Relaxar: ar condicionado é ligado, é definida temperatura de 18 graus e música começa a tocar automaticamente (foi usado como exemplo 18 graus).
-Modo Sair: ar condicionado, música e iluminação são todos desligados automaticamente.
+Modo Acordar: alarme toca e iluminação acende automaticamente.<br />
+Modo Dormir: iluminação apaga, ar condicionado é ligado e é definida uma temperatura padrão automaticamente (foi usado como exemplo 16 graus).<br />
+Modo Relaxar: ar condicionado é ligado, é definida temperatura de 18 graus e música começa a tocar automaticamente (foi usado como exemplo 18 graus).<br />
+Modo Sair: ar condicionado, música e iluminação são todos desligados automaticamente.<br />
 
 O sistema é totalmente testado através de testes unitários usando JUnit 5. Nos métodos de teste relacionados ao ar condicionado, como 
 deveDefinirTemperaturaArCondicionadoComSucesso(), deveLancarExcecaoEmDefinirTemperaturaArCondicionadoEmCasoDeTemperaturaInvalida() e
