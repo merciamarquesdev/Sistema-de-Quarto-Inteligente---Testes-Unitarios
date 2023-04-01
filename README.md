@@ -8,7 +8,7 @@ Modo Dormir: iluminação apaga, ar condicionado é ligado e é definida uma tem
 Modo Relaxar: ar condicionado é ligado, é definida temperatura de 18 graus e música começa a tocar automaticamente (foi usado como exemplo 18 graus).<br />
 Modo Sair: ar condicionado, música e iluminação são todos desligados automaticamente.<br />
 
-O sistema é composto por uma entidade, QuartoInteligente, e duas classes service, QuartoInteligenteService e ModoService.
+O sistema é composto por uma entidade, QuartoInteligente, e duas classes service, QuartoInteligenteService e ModoService, com o total de 13 métodos em service.
 
 O sistema é totalmente testado através de testes unitários usando JUnit 5. Nos métodos de teste relacionados ao ar condicionado, como 
 deveDefinirTemperaturaArCondicionadoComSucesso(), deveLancarExcecaoEmDefinirTemperaturaArCondicionadoEmCasoDeTemperaturaInvalida() e
