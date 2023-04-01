@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ModoService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sistema-de-Quarto-Inteligente---Testes-Unitarios</a> &gt; <a href="index.source.html" class="el_package">service</a> &gt; <span class="el_source">ModoService.java</span></div><h1>ModoService.java</h1><pre class="source lang-java linenums">package service;
+
+import model.QuartoInteligente;
+
+<span class="fc" id="L5">public class ModoService{</span>
+
+    public void modoDormir(QuartoInteligenteService quartoInteligenteService, QuartoInteligente quartoInteligente) throws Exception {
+<span class="fc" id="L8">        quartoInteligenteService.apagarLuz(quartoInteligente);</span>
+<span class="fc" id="L9">        quartoInteligenteService.ligarArCondicionado(quartoInteligente);</span>
+<span class="fc" id="L10">        quartoInteligenteService.definirTemperaturaArCondicionado(quartoInteligente, 16);</span>
+<span class="fc" id="L11">    }</span>
+
+    public void modoAcordar(QuartoInteligenteService quartoInteligenteService, QuartoInteligente quartoInteligente){
+<span class="fc" id="L14">        quartoInteligenteService.tocarAlarme(quartoInteligente);</span>
+<span class="fc" id="L15">        quartoInteligenteService.acenderLuz(quartoInteligente);</span>
+<span class="fc" id="L16">    }</span>
+
+    public void modoRelaxar(QuartoInteligenteService quartoInteligenteService, QuartoInteligente quartoInteligente) throws Exception {
+<span class="fc" id="L19">        quartoInteligenteService.ligarArCondicionado(quartoInteligente);</span>
+<span class="fc" id="L20">        quartoInteligenteService.definirTemperaturaArCondicionado(quartoInteligente,18);</span>
+<span class="fc" id="L21">        quartoInteligenteService.tocarMusica(quartoInteligente);</span>
+<span class="fc" id="L22">    }</span>
+
+    public void modoSair(QuartoInteligenteService quartoInteligenteService, QuartoInteligente quartoInteligente){
+<span class="fc" id="L25">        quartoInteligenteService.desligarArCondicionado(quartoInteligente);</span>
+<span class="fc" id="L26">        quartoInteligenteService.desligarMusica(quartoInteligente);</span>
+<span class="fc" id="L27">        quartoInteligenteService.apagarLuz(quartoInteligente);</span>
+<span class="fc" id="L28">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

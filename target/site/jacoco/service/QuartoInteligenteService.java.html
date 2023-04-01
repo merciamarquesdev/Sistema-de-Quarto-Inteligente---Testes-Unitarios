@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>QuartoInteligenteService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sistema-de-Quarto-Inteligente---Testes-Unitarios</a> &gt; <a href="index.source.html" class="el_package">service</a> &gt; <span class="el_source">QuartoInteligenteService.java</span></div><h1>QuartoInteligenteService.java</h1><pre class="source lang-java linenums">package service;
+
+import model.QuartoInteligente;
+
+<span class="fc" id="L5">public class QuartoInteligenteService {</span>
+
+    public void tocarAlarme(QuartoInteligente quartoInteligente){
+<span class="fc" id="L8">        quartoInteligente.setAlarme(true);</span>
+<span class="fc" id="L9">    }</span>
+    public void desligarAlarme(QuartoInteligente quartoInteligente){
+<span class="fc" id="L11">        quartoInteligente.setAlarme(false);</span>
+<span class="fc" id="L12">    }</span>
+    public void acenderLuz(QuartoInteligente quartoInteligente) {
+<span class="fc" id="L14">        quartoInteligente.setIluminacao(true);</span>
+<span class="fc" id="L15">    }</span>
+
+    public void apagarLuz(QuartoInteligente quartoInteligente) {
+<span class="fc" id="L18">        quartoInteligente.setIluminacao(false);</span>
+<span class="fc" id="L19">    }</span>
+
+    public void ligarArCondicionado(QuartoInteligente quartoInteligente) {
+<span class="fc" id="L22">        quartoInteligente.setArCondicionado(true);</span>
+<span class="fc" id="L23">    }</span>
+
+    public void desligarArCondicionado(QuartoInteligente quartoInteligente) {
+<span class="fc" id="L26">        quartoInteligente.setArCondicionado(false);</span>
+<span class="fc" id="L27">    }</span>
+
+    public void definirTemperaturaArCondicionado(QuartoInteligente quartoInteligente, int temperatura) throws Exception {
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (quartoInteligente.getArCondicionado()){</span>
+<span class="pc bpc" id="L31" title="1 of 4 branches missed.">            if ( 16 &lt;= temperatura &amp;&amp; temperatura &lt;= 26) {</span>
+<span class="fc" id="L32">                quartoInteligente.setTemperaturaArCondicionado(temperatura);</span>
+            }
+            else {
+<span class="fc" id="L35">                throw new Exception(&quot;Temperatura inválida: &quot; + temperatura + &quot;. A temperatura deve ser entre 16 e 26 graus.&quot;);</span>
+            }
+        }
+        else{
+<span class="fc" id="L39">            throw new Exception(&quot;O ar condicionado deve estar ligado para definir nova temperatura.&quot;);</span>
+        }
+<span class="fc" id="L41">    }</span>
+
+    public void tocarMusica(QuartoInteligente quartoInteligente){
+<span class="fc" id="L44">        quartoInteligente.setMusica(true);</span>
+<span class="fc" id="L45">    }</span>
+
+    public void desligarMusica(QuartoInteligente quartoInteligente){
+<span class="fc" id="L48">        quartoInteligente.setMusica(false);</span>
+<span class="fc" id="L49">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

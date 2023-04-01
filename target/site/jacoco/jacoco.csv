@@ -1,0 +1,4 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Sistema-de-Quarto-Inteligente---Testes-Unitarios,service,ModoService,0,42,0,0,0,16,0,5,0,5
+Sistema-de-Quarto-Inteligente---Testes-Unitarios,service,QuartoInteligenteService,0,60,1,5,0,23,1,12,0,10
+Sistema-de-Quarto-Inteligente---Testes-Unitarios,model,QuartoInteligente,0,38,0,0,0,16,0,11,0,11
