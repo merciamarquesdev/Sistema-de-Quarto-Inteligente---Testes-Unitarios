@@ -1,15 +1,11 @@
 package service;
 import model.QuartoInteligente;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 class QuartoInteligenteServiceTest {
 
@@ -26,72 +22,89 @@ class QuartoInteligenteServiceTest {
 
     @Test
     @DisplayName("Testa o método tocarAlarme")
-    void tocarAlarmeTest() {
+    void deveTocarAlarmeComSucesso() {
         quartoInteligenteService.tocarAlarme(quartoInteligente);
         Assertions.assertTrue(quartoInteligente.getAlarme());
     }
 
     @Test
     @DisplayName("Testa o método desligarAlarme")
-    void desligarAlarmeTest() {
+    void deveDesligarAlarmeComSucesso() {
         quartoInteligenteService.desligarAlarme(quartoInteligente);
         Assertions.assertFalse(quartoInteligente.getAlarme());
     }
 
     @Test
     @DisplayName("Testa o método acenderLuz")
-    void acenderLuzTest() {
+    void deveAcenderLuzComSucesso() {
         quartoInteligenteService.acenderLuz(quartoInteligente);
         Assertions.assertTrue(quartoInteligente.getIluminacao());
     }
 
     @Test
     @DisplayName("Testa o método apagarLuz")
-    void apagarLuzTest() {
+    void deveApagarLuzComSucesso() {
         quartoInteligenteService.apagarLuz(quartoInteligente);
         Assertions.assertFalse(quartoInteligente.getIluminacao());
     }
 
     @Test
     @DisplayName("Testa o método ligarArCondicionado")
-    void ligarArCondicionadoTest() {
+    void deveLigarArCondicionadoComSucesso() {
         quartoInteligenteService.ligarArCondicionado(quartoInteligente);
         Assertions.assertTrue(quartoInteligente.getArCondicionado());
     }
 
     @Test
     @DisplayName("Testa o método desligarArCondicionado")
-    void desligarArCondicionadoTest() {
+    void deveDesligarArCondicionadoComSucesso() {
         quartoInteligenteService.desligarArCondicionado(quartoInteligente);
         Assertions.assertFalse(quartoInteligente.getArCondicionado());
     }
 
     @Test
     @DisplayName("Testa o método definirTemperaturaArCondicionado")
-    void definirTemperaturaArCondicionadoTest() {
-        when(quartoInteligenteMock.getArCondicionado()).thenReturn(true);
-        when(quartoInteligenteMock.getTemperaturaArCondicionado()).thenReturn(19);
-        quartoInteligenteService.definirTemperaturaArCondicionado(quartoInteligenteMock, 19);
-        Assertions.assertEquals(19, quartoInteligenteMock.getTemperaturaArCondicionado());
+    public void deveDefinirTemperaturaArCondicionadoComSucesso() throws Exception {
+        Mockito.when(quartoInteligenteMock.getArCondicionado()).thenReturn(true);
+        quartoInteligenteService.definirTemperaturaArCondicionado(quartoInteligenteMock, 18);
+        Mockito.verify(quartoInteligenteMock).setTemperaturaArCondicionado(18);
+    }
+
+    @Test
+    @DisplayName("Testa o método definirTemperaturaArCondicionado em caso de temperatura invalida")
+    public void deveLancarExcecaoEmDefinirTemperaturaArCondicionadoEmCasoDeTemperaturaInvalida() throws Exception {
+        Mockito.when(quartoInteligenteMock.getArCondicionado()).thenReturn(true);
+        Exception exception = assertThrows(Exception.class, () ->
+                quartoInteligenteService.definirTemperaturaArCondicionado(quartoInteligenteMock, 30));
+        assertEquals("Temperatura inválida: 30. A temperatura deve ser entre 0 e 25 graus.", exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("Testa o método definirTemperaturaArCondicionado em caso de aparelho desligado")
+    public void naoDeveDefinirTemperaturaArCondicionadoSeArCondicionadoEstiverDesligado() {
+        Mockito.when(quartoInteligenteMock.getArCondicionado()).thenReturn(false);
+        Exception exception = assertThrows(Exception.class, () ->
+                quartoInteligenteService.definirTemperaturaArCondicionado(quartoInteligenteMock, 15));
+        assertEquals("O ar condicionado deve estar ligado para definir nova temperatura.", exception.getMessage());
     }
 
     @Test
     @DisplayName("Testa o método tocarMusica")
-    void tocarMusicaTest(){
+    void deveTocarMusicaComSucesso(){
         quartoInteligenteService.tocarMusica(quartoInteligente);
         Assertions.assertTrue(quartoInteligente.getMusica());
     }
 
     @Test
     @DisplayName("Testa o método desligarMusica")
-    void desligarMusicaTest(){
+    void deveDesligarMusicaComSucesso(){
         quartoInteligenteService.desligarMusica(quartoInteligente);
         Assertions.assertFalse(quartoInteligente.getMusica());
     }
 
     @Test
     @DisplayName("Testa o método informarHoraCerta")
-    void informarHoraCertaTest(){
+    void deveInformarHoraCertaComSucesso(){
         LocalDateTime expected = LocalDateTime.of(2023, 3, 30, 15, 0);
         Mockito.when(quartoInteligenteMock.getHorario()).thenReturn(expected);
         LocalDateTime result = quartoInteligenteService.informarHoraCerta(quartoInteligenteMock);

@@ -26,8 +26,18 @@ public class QuartoInteligenteService {
 
     public void desligarArCondicionado(QuartoInteligente quartoInteligente) {quartoInteligente.setArCondicionado(false);}
 
-    public void definirTemperaturaArCondicionado(QuartoInteligente quartoInteligente, int temperatura) {
-        quartoInteligente.setTemperaturaArCondicionado(temperatura);
+    public void definirTemperaturaArCondicionado(QuartoInteligente quartoInteligente, int temperatura) throws Exception {
+        if (quartoInteligente.getArCondicionado()){
+            if ( 0 < temperatura && temperatura < 25) {
+                quartoInteligente.setTemperaturaArCondicionado(temperatura);
+            }
+            else {
+                throw new Exception("Temperatura inválida: " + temperatura + ". A temperatura deve ser entre 0 e 25 graus.");
+            }
+        }
+        else{
+            throw new Exception("O ar condicionado deve estar ligado para definir nova temperatura.");
+        }
     }
 
     public void tocarMusica(QuartoInteligente quartoInteligente){
